@@ -4,6 +4,18 @@ body {
   padding-top: 20px;
 }
 
+.phonelist ul{
+	display:inline;
+}
+
+
+.phonelist li {
+	float: left;
+	width: 450px;
+	border: solid black rgb(227, 235, 231);
+}
+
+
 
 .phone-images {
   width: 450px;
@@ -26,7 +38,8 @@ body {
 }
 
 .phones li {
-  clear: both;
+  margin: 1px;
+  overflow: hidden;
   height: 100px;
   padding-top: 15px;
 }
