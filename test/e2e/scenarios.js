@@ -30,11 +30,16 @@ describe('PhoneCat App', function() {
 
 		expect(getNames()).toEqual(["New Motorola XOOM\u2122 with Wi-Fi", "MOTOROLA XOOM\u2122"]);
 		expect(result.getText()).toBe('Total phones : 2 on 20');
-		
+
 		order.findElement(by.css('option[value="name"]')).click();
-		
+
 		expect(getNames()).toEqual(["MOTOROLA XOOM\u2122", "New Motorola XOOM\u2122 with Wi-Fi"]);
 		expect(result.getText()).toBe('Total phones : 2 on 20');
+	});
+
+	it('should build a well-formed url by clicking a mobile phone link', function() {
+		element(by.css('ul li:nth-child(1) a')).click();
+		browser.getLocationAbsUrl().then(function(url) {expect(url.split('#')[1]).toBe('/phones/motorola-xoom');});
 	});
 
 	// Utils
