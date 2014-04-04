@@ -40,6 +40,12 @@ describe('PhoneCat App', function() {
 	it('should build a well-formed url by clicking a mobile phone link', function() {
 		element(by.css('ul li:nth-child(1) a')).click();
 		browser.getLocationAbsUrl().then(function(url) {expect(url.split('#')[1]).toBe('/phones/motorola-xoom');});
+		
+	});
+	
+	it('should be on the good view regarding the url', function() {
+		var phone = element(by.binding('phoneId'));
+		expect(phone.getText()).toBe('motorola-xoom');
 	});
 
 	// Utils

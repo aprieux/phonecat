@@ -1,28 +1,30 @@
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span2">
-      <!--Sidebar content-->
-
-      Search: <input ng-model="query">
-      Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
-      </select>
-
-    </div>
-    <div class="span10">
-      <!--Body content-->
-
-      <ul class="phones">
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
-            class="thumbnail phone-listing">
-          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
-          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-          <p>{{phone.snippet}}</p>
-        </li>
-      </ul>
-
-    </div>
-  </div>
+<div class="phoneSearch" ng-controller="PhoneListCtrl">
+	<div class="filter">
+		<span>Search: <input ng-model="phoneQuery"> Sort by:</span>
+		<select ng-model="phoneOrder">
+			<option value="name">Alphabetical</option>
+			<option value="age">Newest</option>
+			<option value="-name">Reverse Alphabetical</option>
+		</select> 
+		<span>Show : </span>
+		<select ng-model="phoneLimit">
+			<option value="5000">All (5000 Max.)</option>
+			<option value="5">5</option>
+			<option value="10">10</option>
+			<option value="15">15</option>
+			<option value="20">20</option>
+			<option value="50">50</option>
+			<option value="100">100</option>
+		</select>
+	</div>
+	<p class="result">Total phones : {{phonesFiltered.length}} on {{phones.length}}</p>
+	<div class="phonelist">
+		<ul class="phones">
+			<li ng-repeat="phone in phonesFiltered = (phones | filter:phoneQuery | limitTo:phoneLimit | orderBy:phoneOrder)" class="thumbnail">
+				<a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+				<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+				<p>{{phone.snippet}}</p>
+			</li>
+		</ul>
+	</div>
 </div>

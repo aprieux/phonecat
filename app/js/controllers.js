@@ -11,3 +11,8 @@ phonecatControllers.controller('PhoneListCtrl', function($scope, $http) {
 		$scope.phones = data;
 	});
 });
+
+phonecatControllers.controller('PhoneDetailCtrl', function($scope, $routeParams) {
+	console.log($routeParams);
+	$scope.phoneId = $routeParams.phoneId
+});
