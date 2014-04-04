@@ -44,8 +44,8 @@ describe('PhoneCat App', function() {
 	});
 	
 	it('should be on the good view regarding the url', function() {
-		var phone = element(by.binding('phoneId'));
-		expect(phone.getText()).toBe('motorola-xoom');
+		var phone = element(by.binding('phone.name'));
+		expect(phone.getText()).toBe('MOTOROLA XOOM\u2122');
 	});
 
 	// Utils
