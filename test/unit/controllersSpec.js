@@ -27,10 +27,12 @@ describe('PhoneCat controllers', function() {
 			expect(scope.phoneOrder).toBe('age');
 		});
 	});
-	
+
 	describe('PhoneDetailCtrl', function() {
 		var scope, ctrl, $httpBackend;
-		var xyzPhoneData = function() {return {name: 'phone xyz', images: ['image/url1.png', 'image/url2.png']}};
+		var xyzPhoneData = function() {
+			return {name: 'phone xyz', images: ['image/url1.png', 'image/url2.png']}
+		};
 
 		beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller) {
 			$httpBackend = _$httpBackend_;
@@ -47,6 +49,5 @@ describe('PhoneCat controllers', function() {
 		});
 
 	});
-
 
 });
