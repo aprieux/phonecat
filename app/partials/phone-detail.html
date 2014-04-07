@@ -18,6 +18,21 @@
       <dd ng-repeat="availability in phone.availability">{{availability}}</dd>
     </dl>
   </li>
+  <li>
+    <span>Connectivity</span>
+    <dl>
+      <dt>Network Support</dt>
+      <dd>{{phone.connectivity.cell | checkmark}}</dd>
+      <dt>WiFi</dt>
+      <dd>{{phone.connectivity.wifi | checkmark}}</dd>
+      <dt>Bluetooth</dt>
+      <dd>{{phone.connectivity.bluetooth | checkmark}}</dd>
+      <dt>Infrared</dt>
+      <dd>{{phone.connectivity.infrared | checkmark}}</dd>
+      <dt>GPS</dt>
+      <dd>{{phone.connectivity.gps | checkmark}}</dd>
+    </dl>
+  </li>
   <lli>
     <span>Additional Features</span>
     <dd>{{phone.additionalFeatures}}</dd>

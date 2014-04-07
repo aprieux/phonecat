@@ -26,5 +26,25 @@ describe('PhoneCat controllers', function() {
 			expect(scope.phoneOrder).toBe('age');
 		});
 	});
+	
+	describe('PhoneDetailCtrl', function() {
+		var scope, ctrl, $httpBackend;
+
+		beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller) {
+			$httpBackend = _$httpBackend_;
+			$httpBackend.expectGET('phones/xyz.json').respond({name: 'phone xyz'});
+			$routeParams.phoneId = "xyz";
+			scope = $rootScope.$new();
+			ctrl = $controller('PhoneDetailCtrl', {$scope: scope});
+		}));
+
+		it('should fetch phone detail', function() {
+			expect(scope.phone).toBeUndefined();
+			$httpBackend.flush();
+			expect(scope.phone.name).toBe("phone xyz")
+		});
+
+	});
+
 
 });
