@@ -4,6 +4,7 @@
 
 describe('PhoneCat App', function() {
 	
+	browser.get('app');
 
 	describe('Phone List view', function() {
 		var phonesRpt = by.repeater('phone in phonesFiltered = (phones | filter:phoneQuery | limitTo:phoneLimit | orderBy:phoneOrder)');
@@ -12,8 +13,6 @@ describe('PhoneCat App', function() {
 		var filter = element(by.model('phoneQuery'));
 		var order = element(by.model('phoneOrder'));
 		var result = element(by.css('.result'));
-
-		browser.get('app');
 
 		it('should have the list to 20 items and display the following result : "Total phones : 20 on 20"', function() {
 			expect(phones.count()).toBe(20);
@@ -59,6 +58,11 @@ describe('PhoneCat App', function() {
 		it('should be on the good view regarding the url', function() {
 			var phone = element(by.binding('phone.name'));
 			expect(phone.getText()).toBe('MOTOROLA XOOM\u2122');
+		});
+		
+		it('should display the main picture with the img clicked', function(){
+			element(by.css('.phone-thumbs li:nth-child(2) img')).click();
+			expect(element(by.css('img.phone')).getAttribute('src')).toMatch('/img\/phones\/motorola-xoom.1.jpg');
 		});
 		
 	});
