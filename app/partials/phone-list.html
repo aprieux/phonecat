@@ -20,7 +20,7 @@
 	<p class="result">Total phones : {{phonesFiltered.length}} on {{phones.length}}</p>
 	<div class="phonelist">
 		<ul class="phones">
-			<li ng-repeat="phone in phonesFiltered = (phones | filter:phoneQuery | limitTo:phoneLimit | orderBy:phoneOrder)" class="thumbnail">
+			<li ng-repeat="phone in phonesFiltered = (phones | filter:phoneQuery | limitTo:phoneLimit | orderBy:phoneOrder)" class="thumbnail phone-listing">
 				<a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
 				<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
 				<p>{{phone.snippet}}</p>

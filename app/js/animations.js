@@ -1,3 +1,6 @@
+'use strict';
+
+/* Animations */
 var phonecatAnimations = angular.module('phonecatAnimations', ['ngAnimate']);
 
 phonecatAnimations.animation('.phone', function() {
@@ -8,13 +11,13 @@ phonecatAnimations.animation('.phone', function() {
     }
     element.css({
       position: 'absolute',
-      top: 500,
-      left: 0,
+      top: 0,
+      left: 500,
       display: 'block'
     });
 
     jQuery(element).animate({
-      top: 0
+      left: 0
     }, done);
 
     return function(cancel) {
@@ -35,7 +38,7 @@ phonecatAnimations.animation('.phone', function() {
     });
 
     jQuery(element).animate({
-      top: -500
+      left: -500
     }, done);
 
     return function(cancel) {
