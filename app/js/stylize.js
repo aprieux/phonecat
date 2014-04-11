@@ -15,7 +15,7 @@ phonecatStylize.factory('StylizeService', function() {
 	}
 	
 	return {
-		colorised: function(root) {
+		colorised: function(root, brutCrawl) {
 			var k = 0, r = 0, g = 0, b = 0, ra = false, ga = false;
 			var crawler = function(elt) {
 				k = k + 4;
@@ -36,8 +36,23 @@ phonecatStylize.factory('StylizeService', function() {
 					}
 				}
 				if(!excluded(elt)) {
-					elt.style.border = "dotted rgb(" +b+ "," +g+ "," +r+ ") 1px";
-					elt.style.backgroundColor = "rgb(" +r+ "," +g+ ",185)";
+					if(brutCrawl){
+						if(elt.className=="thumb"){
+							$(elt).css({animation:'spinIt 1s'})
+						}else{
+							elt.style.border = "dotted rgb(" +b+ "," +g+ "," +r+ ") 1px";
+							//$(elt).css({animation:'mymove 5s infinite'})
+							$(elt).css({animation:'spinIt 2s', 'background-color':"rgb(" +r+ "," +g+ ",185)"})
+						}
+					} else {
+						if(elt.className=="thumb"){
+							$(elt).css({animation:'spinIt 1s'})
+						}else{
+							elt.style.border = "dotted rgb(" +b+ "," +g+ "," +r+ ") 1px";
+							elt.style.backgroundColor = "rgb(" +r+ "," +g+ ",185)";
+						}
+					}
+					
 				}
 				if(elt.children) {
 					for (var j = 0; j < elt.children.length; j++) {
@@ -61,6 +76,9 @@ phonecatStylize.factory('StylizeService', function() {
 				}
 			};
 			crawler(root);
+		},
+		waitingAnimation: function(elt){
+			
 		}
 	};
 });

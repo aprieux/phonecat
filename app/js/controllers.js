@@ -9,7 +9,10 @@ phonecatControllers.controller('PhoneListCtrl', ['$scope', 'PhoneService', 'Styl
 	$scope.phones = PhoneService.query();
 	
 	$scope.colorised = function(){
-		StylizeService.colorised(document.body);
+		StylizeService.colorised(document.body, false);
+	}
+	$scope.rainbow = function(){
+		StylizeService.colorised(document.body, true);
 	}
 	$scope.addEventListener = function() {
 		StylizeService.addEventListener(document.body);
@@ -32,7 +35,7 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$http', '$routePar
 
 phonecatControllers.controller('ClosureCtrl', ['$scope', 'StylizeService', function($scope, StylizeService) {
 	$scope.colorised = function() {
-		StylizeService.colorised(document.body);
+		StylizeService.colorised(document.body, false);
 	};
 	$scope.addEventListener = function() {
 		StylizeService.addEventListener(document.body);

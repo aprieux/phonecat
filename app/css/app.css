@@ -4,6 +4,27 @@ body {
 
 }
 
+@-webkit-keyframes spinIt {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes spinIt {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes mymove{
+	from {background-color:red;}
+	to {background-color:blue;}
+}
+
+/*Safari and Chrome:*/
+@-webkit-keyframes mymove{
+	from {background-color:red;}
+	to {background-color:blue;}
+}
 
 .phone-images {
   background-color: white;
