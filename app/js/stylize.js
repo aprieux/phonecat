@@ -18,7 +18,7 @@ phonecatStylize.factory('StylizeService', function() {
 		colorised: function(root) {
 			var k = 0, r = 0, g = 0, b = 0, ra = false, ga = false;
 			var crawler = function(elt) {
-				k = k + 8;
+				k = k + 4;
 				if(ra && !ga) {
 					g = k, b = 0;
 					if(k >= 255) {
@@ -37,13 +37,13 @@ phonecatStylize.factory('StylizeService', function() {
 				}
 				if(!excluded(elt)) {
 					elt.style.border = "dotted rgb(" +b+ "," +g+ "," +r+ ") 1px";
-					elt.style.backgroundColor = "rgb(" +r+ "," +r+ "," +g+ ")";
+					elt.style.backgroundColor = "rgb(" +r+ "," +g+ ",185)";
 				}
 				if(elt.children) {
 					for (var j = 0; j < elt.children.length; j++) {
 						setTimeout((function(index, pNodes) {return function() {
 							crawler(pNodes[index]);}}
-						)(j, elt.children), 150*j*2);
+						)(j, elt.children), 100*j*2);
 					}
 				}
 			}
