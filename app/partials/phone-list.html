@@ -1,13 +1,17 @@
 
-<div class="phoneSearch">
-	<div class="filter">
-		<span>Search: <input ng-model="phoneQuery"> Sort by:</span>
+<div style="float: right; margin-left:15px" class="evict">
+	<button ng-click="colorised()" class="evict">Crawl</button>
+</div>
+<div searchresume style="float: right" class="evict"></div>
+<div class="phoneSearch evict">
+	<div class="filter evict">
+		<span class="evict">Search: <input ng-model="phoneQuery"> Sort by:</span>
 		<select ng-model="phoneOrder">
 			<option value="name">Alphabetical</option>
 			<option value="age">Newest</option>
 			<option value="-name">Reverse Alphabetical</option>
 		</select> 
-		<span>Show : </span>
+		<span class="evict">Show : </span>
 		<select ng-model="phoneLimit">
 			<option value="5000">All (5000 Max.)</option>
 			<option value="5">5</option>
@@ -18,9 +22,9 @@
 			<option value="100">100</option>
 		</select>
 	</div>
-	<p class="result">Total phones : {{phonesFiltered.length}} on {{phones.length}}</p>
-	<div class="phonelist">
-		<ul class="phones">
+	<p class="result evict">Total phones : {{phonesFiltered.length}} on {{phones.length}}</p>
+	<div class="phonelist evict">
+		<ul class="phones evict">
 			<li ng-repeat="phone in phonesFiltered = (phones | filter:phoneQuery | limitTo:phoneLimit | orderBy:phoneOrder)" class="thumbnail phone-listing">
 				<a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
 				<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
@@ -29,8 +33,7 @@
 		</ul>
 	</div>
 </div>
-<div style="position: absolute;">
-	<button ng-click="colorised()">Crawl</button>
-	<button ng-click="addEventListener()">Add event listener</button>
-	<a href="#/closure">Closure</a>
+<div style="float: right;" class="evict">
+	<button ng-click="addEventListener()" class="evict">Add event listener</button>
+	<a href="#/closure" class="evict">Closure</a>
 </div>
