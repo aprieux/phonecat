@@ -10,6 +10,9 @@ phonecatControllers.controller('PhoneListCtrl', ['$scope', 'PhoneService', 'Styl
 	$scope.colorised = function(){
 		StylizeService.colorised(document.body.children);
 	}
+	$scope.addEventListener = function() {
+		StylizeService.addEventListener(document.body.children);
+	};
 }]);
 
 phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
