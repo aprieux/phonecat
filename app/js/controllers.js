@@ -17,10 +17,10 @@ phonecatControllers.controller('PhoneListCtrl', ['$scope', 'PhoneService', 'Styl
 	$scope.addEventListener = function() {
 		StylizeService.addEventListener(document.body);
 	};
-}]).directive('searchresume', function() {
-    return {
-    	template: '[Filter resume] => <b class="evict">Order:</b> {{phoneOrder}} - <b class="evict">Limit:</b> {{phoneLimit}} - <b class="evict">filter:</b> {{phoneQuery}}'
-    };
+}]).directive('filterresume', function() {
+	return {
+	      templateUrl: 'partials/filter-resume.html'
+	};
 });
 
 phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {

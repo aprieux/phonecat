@@ -37,20 +37,12 @@ phonecatStylize.factory('StylizeService', function() {
 				}
 				if(!excluded(elt)) {
 					if(brutCrawl){
-						if(elt.className=="thumb"){
-							$(elt).css({animation:'spinIt 1s'})
-						}else{
-							elt.style.border = "dotted rgb(" +b+ "," +g+ "," +r+ ") 1px";
-							//$(elt).css({animation:'mymove 5s infinite'})
-							$(elt).css({animation:'spinIt 2s', 'background-color':"rgb(" +r+ "," +g+ ",185)"})
-						}
+						elt.style.border = "dotted rgb(" +b+ "," +g+ "," +r+ ") 1px";
+						//$(elt).css({animation:'mymove 5s infinite'})
+						$(elt).css({animation:'spinIt 2s', 'background-color':"rgb(" +r+ "," +g+ ",185)"})
 					} else {
-						if(elt.className=="thumb"){
-							$(elt).css({animation:'spinIt 1s'})
-						}else{
-							elt.style.border = "dotted rgb(" +b+ "," +g+ "," +r+ ") 1px";
-							elt.style.backgroundColor = "rgb(" +r+ "," +g+ ",185)";
-						}
+						elt.style.border = "dotted rgb(" +b+ "," +g+ "," +r+ ") 1px";
+						elt.style.backgroundColor = "rgb(" +r+ "," +g+ ",185)";
 					}
 					
 				}
