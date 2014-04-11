@@ -56,7 +56,7 @@ phonecatStylize.factory('StylizeService', function() {
 					for (var j = 0; j < elt.children.length; j++) {
 						setTimeout((function(index, pNodes) {return function() {
 							crawler(pNodes[index]);}}
-						)(j, elt.children), 10 * i);
+						)(j, elt.children), 10);
 					}
 				}
 			};
